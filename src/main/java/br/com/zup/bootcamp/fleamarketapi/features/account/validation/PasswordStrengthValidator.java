@@ -28,7 +28,7 @@ public class PasswordStrengthValidator implements ConstraintValidator<PasswordSt
 //                new CharacterRule(EnglishCharacterData.Digit, 1)
 //        ));
 
-        PasswordValidator validator = new PasswordValidator(new LengthRule(6, 150));
+        PasswordValidator validator = new PasswordValidator(new LengthRule(6, 255));
 
         RuleResult validationResult = validator.validate(new PasswordData(password));
 

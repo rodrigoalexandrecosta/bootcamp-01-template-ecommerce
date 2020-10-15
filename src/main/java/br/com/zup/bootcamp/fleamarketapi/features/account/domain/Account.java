@@ -23,9 +23,10 @@ public class Account {
     @GeneratedValue(generator = "uuid")
     private UUID id;
 
-    @NotNull(message = "message.account.login.mandatory")
-    @Email(message = "message.account.login.invalid-format")
-    private String login;
+    @NotNull(message = "message.account.email.mandatory")
+    @Length(max = 255, message = "message.account.email.length")
+    @Email(message = "message.account.email.invalid-format")
+    private String email;
 
     @NotNull(message = "message.account.password.mandatory")
     @Length(min = 6, message = "message.account.password.length")

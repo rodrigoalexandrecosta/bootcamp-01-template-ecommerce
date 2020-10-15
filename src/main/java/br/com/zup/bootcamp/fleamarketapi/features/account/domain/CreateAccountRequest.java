@@ -1,6 +1,7 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account.domain;
 
 import br.com.zup.bootcamp.fleamarketapi.features.account.validation.PasswordStrength;
+import br.com.zup.bootcamp.fleamarketapi.features.account.validation.UniqueEmail;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,10 +16,11 @@ import java.time.OffsetDateTime;
 @Setter
 public class CreateAccountRequest {
 
-    @NotNull(message = "message.account.login.mandatory")
-    @Length(max = 255, message = "message.account.login.length")
-    @Email(message = "message.account.login.invalid-format")
-    private String login;
+    @NotNull(message = "message.account.email.mandatory")
+    @Length(max = 255, message = "message.account.email.length")
+    @Email(message = "message.account.email.invalid-format")
+    @UniqueEmail
+    private String email;
 
     @NotNull(message = "message.account.password.mandatory")
     @Length(min = 6, message = "message.account.password.length")
@@ -28,7 +30,7 @@ public class CreateAccountRequest {
 
     public Account toAccount(String encodedPassword) {
         return Account.builder()
-                .login(this.login)
+                .email(this.email)
                 .password(encodedPassword)
                 .createdAt(OffsetDateTime.now())
                 .build();
