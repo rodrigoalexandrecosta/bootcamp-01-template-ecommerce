@@ -25,10 +25,10 @@ public class CreateAccountRequest {
     private String password;
 
 
-    public Account toAccount() {
+    public Account toAccount(String encodedPassword) {
         return Account.builder()
                 .login(this.login)
-                .password(this.password)
+                .password(encodedPassword)
                 .createdAt(OffsetDateTime.now())
                 .build();
     }

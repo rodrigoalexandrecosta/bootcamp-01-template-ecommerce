@@ -22,11 +22,12 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class AccountRestController {
 
     private final AccountRepository accountRepository;
+    private final CustomPasswordEncoder customPasswordEncoder;
 
     @Transactional
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody @Valid CreateAccountRequest request) {
-        Account account = this.accountRepository.save(request.toAccount());
+        Account account = this.accountRepository.save(request.toAccount(customPasswordEncoder.encode(request.getPassword())));
         return ResponseEntity.created(URI.create(String.format("/api/v1/accounts/%s", account.getId()))).build();
     }
 
