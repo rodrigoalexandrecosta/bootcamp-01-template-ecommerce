@@ -1,9 +1,10 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
-import br.com.zup.bootcamp.fleamarketapi.model.request.CreateAccountRequest;
+import br.com.zup.bootcamp.fleamarketapi.features.account.domain.Account;
+import br.com.zup.bootcamp.fleamarketapi.features.account.domain.CreateAccountRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class AccountRestController {
 
     private final AccountRepository accountRepository;
 
+    @Transactional
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody @Valid CreateAccountRequest request) {
         Account account = this.accountRepository.save(request.toAccount());

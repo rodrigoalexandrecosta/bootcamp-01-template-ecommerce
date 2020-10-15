@@ -1,8 +1,14 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.features.account.domain.Account;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AccountRepository extends CrudRepository<Account, Long> {
+import java.util.Optional;
+import java.util.UUID;
 
+@Repository
+public interface AccountRepository extends CrudRepository<Account, UUID> {
+
+    Optional<Account> findByLogin(String login);
 }

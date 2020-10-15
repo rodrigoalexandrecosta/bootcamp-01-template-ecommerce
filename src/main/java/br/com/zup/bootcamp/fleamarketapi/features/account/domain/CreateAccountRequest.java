@@ -1,12 +1,11 @@
-package br.com.zup.bootcamp.fleamarketapi.model.request;
+package br.com.zup.bootcamp.fleamarketapi.features.account.domain;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.features.account.validation.PasswordStrength;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import java.time.OffsetDateTime;
 
 @Builder
@@ -22,16 +21,15 @@ public class CreateAccountRequest {
 
     @NotNull(message = "message.account.password.mandatory")
     @Length(min = 6, message = "message.account.password.length")
+    @PasswordStrength
     private String password;
 
-//    @NotNull(message = "message.account.created-at.mandatory")
-//    @PastOrPresent(message = "message.account.created-at.past-or-present-date")
-//    private OffsetDateTime createdAt;
 
     public Account toAccount() {
         return Account.builder()
                 .login(this.login)
                 .password(this.password)
+                .createdAt(OffsetDateTime.now())
                 .build();
     }
 }
