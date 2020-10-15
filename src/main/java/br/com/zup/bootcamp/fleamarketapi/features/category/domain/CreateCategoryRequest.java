@@ -1,5 +1,6 @@
 package br.com.zup.bootcamp.fleamarketapi.features.category.domain;
 
+import br.com.zup.bootcamp.fleamarketapi.features.category.validation.UniqueCategory;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -12,7 +13,7 @@ public class CreateCategoryRequest {
 
     @NotBlank(message = "message.category.name.mandatory")
     @Length(max = 255, message = "message.account.email.length")
-//    @UniqueCategory
+    @UniqueCategory
     private String name;
 
     @Deprecated
