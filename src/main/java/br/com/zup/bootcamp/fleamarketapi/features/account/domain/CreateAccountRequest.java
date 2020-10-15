@@ -6,7 +6,7 @@ import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.time.OffsetDateTime;
 
 @Builder
@@ -16,13 +16,13 @@ import java.time.OffsetDateTime;
 @Setter
 public class CreateAccountRequest {
 
-    @NotNull(message = "message.account.email.mandatory")
+    @NotBlank(message = "message.account.email.mandatory")
     @Length(max = 255, message = "message.account.email.length")
     @Email(message = "message.account.email.invalid-format")
     @UniqueEmail
     private String email;
 
-    @NotNull(message = "message.account.password.mandatory")
+    @NotBlank(message = "message.account.password.mandatory")
     @Length(min = 6, message = "message.account.password.length")
     @PasswordStrength
     private String password;
