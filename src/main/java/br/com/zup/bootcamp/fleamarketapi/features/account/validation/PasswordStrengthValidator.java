@@ -16,17 +16,19 @@ public class PasswordStrengthValidator implements ConstraintValidator<PasswordSt
 
     @Override
     public boolean isValid(String password, ConstraintValidatorContext context) {
-        PasswordValidator validator = new PasswordValidator(List.of(
+//        PasswordValidator validator = new PasswordValidator(List.of(
+//
+//                // length between 6 and 150 chars
+//                new LengthRule(6, 150),
+//
+//                // at least one lower case char
+//                new CharacterRule(EnglishCharacterData.LowerCase, 1),
+//
+//                // at least one digit char
+//                new CharacterRule(EnglishCharacterData.Digit, 1)
+//        ));
 
-                // length between 6 and 150 chars
-                new LengthRule(6, 150),
-
-                // at least one lower case char
-                new CharacterRule(EnglishCharacterData.LowerCase, 1),
-
-                // at least one digit char
-                new CharacterRule(EnglishCharacterData.Digit, 1)
-        ));
+        PasswordValidator validator = new PasswordValidator(new LengthRule(6, 150));
 
         RuleResult validationResult = validator.validate(new PasswordData(password));
 
