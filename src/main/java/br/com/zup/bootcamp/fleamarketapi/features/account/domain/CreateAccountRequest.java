@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 public class CreateAccountRequest {
 
     @NotNull(message = "message.account.login.mandatory")
+    @Length(max = 255, message = "message.account.login.length")
     @Email(message = "message.account.login.invalid-format")
     private String login;
 
