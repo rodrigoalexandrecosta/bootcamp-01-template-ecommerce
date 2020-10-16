@@ -1,6 +1,6 @@
-package br.com.zup.bootcamp.fleamarketapi.features.category.domain;
+package br.com.zup.bootcamp.fleamarketapi.features.category;
 
-import br.com.zup.bootcamp.fleamarketapi.features.category.validation.ExistingCategory;
+import br.com.zup.bootcamp.fleamarketapi.features.category.validation.ExistingParentCategory;
 import br.com.zup.bootcamp.fleamarketapi.features.category.validation.UniqueCategory;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ public class CreateCategoryRequest {
     @UniqueCategory
     private String name;
 
-    @ExistingCategory
+    @ExistingParentCategory
     private UUID parentId;
 
     @Deprecated

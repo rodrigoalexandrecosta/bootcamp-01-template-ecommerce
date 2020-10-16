@@ -1,19 +1,19 @@
 package br.com.zup.bootcamp.fleamarketapi.features.category.validation;
 
 import br.com.zup.bootcamp.fleamarketapi.features.category.CategoryRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.UUID;
 
-@RequiredArgsConstructor
-public class ExistingCategoryValidator implements ConstraintValidator<ExistingCategory, UUID> {
+public class ExistingParentCategoryValidator implements ConstraintValidator<ExistingParentCategory, UUID> {
 
-    private final CategoryRepository categoryRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
-    public void initialize(ExistingCategory annotation) {
+    public void initialize(ExistingParentCategory annotation) {
     }
 
     @Override
@@ -21,6 +21,6 @@ public class ExistingCategoryValidator implements ConstraintValidator<ExistingCa
         if (parentCategoryId == null) {
             return true;
         }
-        return this.categoryRepository.findById(parentCategoryId).isEmpty();
+        return this.categoryRepository.findById(parentCategoryId).isPresent();
     }
 }

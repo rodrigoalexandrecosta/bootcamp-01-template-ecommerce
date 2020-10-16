@@ -12,10 +12,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = ExistingCategoryValidator.class)
-public @interface ExistingCategory {
+@Constraint(validatedBy = ExistingParentCategoryValidator.class)
+public @interface ExistingParentCategory {
 
-    String message() default "{message.category.parent-id.exists}";
+    String message() default "{message.category.parent.not-found}";
 
     Class<?>[] groups() default {};
 

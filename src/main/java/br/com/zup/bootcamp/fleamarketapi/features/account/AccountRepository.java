@@ -1,6 +1,5 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account;
 
-import br.com.zup.bootcamp.fleamarketapi.features.account.domain.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +10,4 @@ import java.util.UUID;
 public interface AccountRepository extends CrudRepository<Account, UUID> {
 
     Optional<Account> findByEmail(String email);
-    boolean existsByEmail(String email);
 }

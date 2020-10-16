@@ -1,15 +1,15 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account.validation;
 
 import br.com.zup.bootcamp.fleamarketapi.features.account.AccountRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-@RequiredArgsConstructor
 public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
 
-    private final AccountRepository accountRepository;
+    @Autowired
+    private AccountRepository accountRepository;
 
     @Override
     public void initialize(UniqueEmail annotation) {
@@ -17,6 +17,6 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, St
 
     @Override
     public boolean isValid(String email, ConstraintValidatorContext context) {
-        return !this.accountRepository.existsByEmail(email);
+        return this.accountRepository.findByEmail(email).isEmpty();
     }
 }
