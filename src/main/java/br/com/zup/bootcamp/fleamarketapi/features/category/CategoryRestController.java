@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 import java.net.URI;
+import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -24,6 +25,11 @@ public class CategoryRestController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody @Valid CreateCategoryRequest request) {
+        Optional.ofNullable(request.getParentId()).ifPresent(parentId -> {
+            Category parent = this.categoryRepository.findById(parentId).orElse(null);
+            
+        });
+
         Category category = this.categoryRepository.save(request.toCategory());
         return ResponseEntity.created(URI.create(String.format("/categories/%s", category.getId()))).build();
     }

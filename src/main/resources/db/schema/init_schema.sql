@@ -1,10 +1,10 @@
-CREATE USER fleamarket WITH password 'fleamarket';
+create user fleamarket with password 'fleamarket';
 
-CREATE SCHEMA fleamarketapi_service;
-ALTER USER fleamarket SET search_path = 'fleamarketapi_service, public';
+create schema fleamarketapi_service;
+alter user fleamarket set search_path = 'fleamarketapi_service, public';
 
-GRANT USAGE, CREATE ON SCHEMA fleamarketapi_service TO fleamarket;
-GRANT ALL ON ALL TABLES IN SCHEMA fleamarketapi_service TO fleamarket;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA fleamarketapi_service TO fleamarket;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA fleamarketapi_service TO fleamarket;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA fleamarketapi_service TO fleamarket;
+grant usage, create on schema fleamarketapi_service to fleamarket;
+grant all on all tables in schema fleamarketapi_service to fleamarket;
+grant all privileges on all tables in schema fleamarketapi_service to fleamarket;
+grant all privileges on all sequences in schema fleamarketapi_service to fleamarket;
+grant execute on all functions in schema fleamarketapi_service to fleamarket;

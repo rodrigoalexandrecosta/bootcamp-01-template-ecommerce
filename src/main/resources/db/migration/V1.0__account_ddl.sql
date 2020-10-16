@@ -1,4 +1,4 @@
-CREATE TABLE account
+create table account
 (
     id         uuid primary key not null,
     email      varchar(255)     not null,
