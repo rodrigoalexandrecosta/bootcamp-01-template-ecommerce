@@ -24,7 +24,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class ProductRestController {
 
     private final ProductRepository productRepository;
-    private final CharacteristicRepository characteristicRepository;
+    private final ProductCharacteristicRepository productCharacteristicRepository;
     private final AccountRepository accountRepository;
     private final CategoryRepository categoryRepository;
 
@@ -41,7 +41,7 @@ public class ProductRestController {
 
         final Product product = this.productRepository.save(request.toProduct(account, category));
 
-        this.characteristicRepository.saveAll(
+        this.productCharacteristicRepository.saveAll(
                 request.getCharacteristics()
                         .stream()
                         .map(charRequest -> charRequest.toCharacteristic(product))

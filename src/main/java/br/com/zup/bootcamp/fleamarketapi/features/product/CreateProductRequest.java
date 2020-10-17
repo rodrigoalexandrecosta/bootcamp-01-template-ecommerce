@@ -37,7 +37,7 @@ public class CreateProductRequest {
 
     @NotEmpty(message = "message.product.characteristics.mandatory")
     // min = 3
-    private List<CreateCharacteristicRequest> characteristics;
+    private List<CreateProductCharacteristicRequest> characteristics;
 
     @NotNull(message = "message.product.category-id.mandatory")
 //    @ExistingCategory

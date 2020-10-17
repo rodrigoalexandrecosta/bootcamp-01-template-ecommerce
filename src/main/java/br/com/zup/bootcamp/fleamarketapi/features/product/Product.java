@@ -45,7 +45,7 @@ public class Product {
     private OffsetDateTime createdAt;
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Characteristic> characteristics;
+    private List<ProductCharacteristic> productCharacteristics;
 
     @ManyToOne
     private Category category;

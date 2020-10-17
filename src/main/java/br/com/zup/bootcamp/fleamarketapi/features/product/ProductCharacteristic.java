@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Characteristic {
+public class ProductCharacteristic {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -29,10 +29,10 @@ public class Characteristic {
     private Product product;
 
     @Deprecated
-    public Characteristic() {
+    public ProductCharacteristic() {
     }
 
-    public Characteristic(String name, String value, Product product) {
+    public ProductCharacteristic(String name, String value, Product product) {
         this.name = name;
         this.value = value;
         this.product = product;

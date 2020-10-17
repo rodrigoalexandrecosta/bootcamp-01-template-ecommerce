@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface CharacteristicRepository extends CrudRepository<Characteristic, UUID> {
+public interface ProductCharacteristicRepository extends CrudRepository<ProductCharacteristic, UUID> {
 
 }

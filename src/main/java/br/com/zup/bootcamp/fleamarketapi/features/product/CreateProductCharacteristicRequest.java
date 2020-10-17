@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-public class CreateCharacteristicRequest {
+public class CreateProductCharacteristicRequest {
 
     @NotBlank(message = "message.product.characteristic.name.mandatory")
     private String name;
@@ -17,15 +17,15 @@ public class CreateCharacteristicRequest {
 
 
     @Deprecated
-    public CreateCharacteristicRequest() {
+    public CreateProductCharacteristicRequest() {
     }
 
-    public CreateCharacteristicRequest(String name, String value) {
+    public CreateProductCharacteristicRequest(String name, String value) {
         this.name = name;
         this.value = value;
     }
 
-    public Characteristic toCharacteristic(Product product) {
-        return new Characteristic(this.name, this.value, product);
+    public ProductCharacteristic toCharacteristic(Product product) {
+        return new ProductCharacteristic(this.name, this.value, product);
     }
 }
