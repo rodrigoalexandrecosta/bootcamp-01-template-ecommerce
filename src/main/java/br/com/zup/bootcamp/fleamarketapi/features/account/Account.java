@@ -1,15 +1,15 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account;
 
+import br.com.zup.bootcamp.fleamarketapi.features.product.Product;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -35,4 +35,7 @@ public class Account {
 
     @NotNull(message = "message.account.created-at.mandatory")
     private OffsetDateTime createdAt;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Product> products;
 }
