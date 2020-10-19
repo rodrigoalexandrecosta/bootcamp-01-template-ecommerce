@@ -1,7 +1,5 @@
-package br.com.zup.bootcamp.fleamarketapi.features.product;
+package br.com.zup.bootcamp.fleamarketapi.model;
 
-import br.com.zup.bootcamp.fleamarketapi.features.account.Account;
-import br.com.zup.bootcamp.fleamarketapi.features.category.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,7 +16,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor // id
+@AllArgsConstructor
 @Builder
 public class Product {
 
@@ -44,8 +42,11 @@ public class Product {
     @NotNull(message = "message.product.created-at.mandatory")
     private OffsetDateTime createdAt;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "product")
     private List<ProductCharacteristic> productCharacteristics;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductPhoto> productPhotos;
 
     @ManyToOne
     private Category category;

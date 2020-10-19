@@ -1,4 +1,6 @@
-package br.com.zup.bootcamp.fleamarketapi.features.account.validation;
+package br.com.zup.bootcamp.fleamarketapi.model.validation.annotation;
+
+import br.com.zup.bootcamp.fleamarketapi.model.validation.validator.PasswordStrengthValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -12,10 +14,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = UniqueEmailValidator.class)
-public @interface UniqueEmail {
+@Constraint(validatedBy = PasswordStrengthValidator.class)
+public @interface PasswordStrength {
 
-    String message() default "{message.account.login.unique}";
+    String message() default "{message.account.password.weak}";
 
     Class<?>[] groups() default {};
 

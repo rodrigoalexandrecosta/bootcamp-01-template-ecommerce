@@ -1,5 +1,7 @@
-package br.com.zup.bootcamp.fleamarketapi.features.product;
+package br.com.zup.bootcamp.fleamarketapi.model.request;
 
+import br.com.zup.bootcamp.fleamarketapi.model.Product;
+import br.com.zup.bootcamp.fleamarketapi.model.ProductCharacteristic;
 import lombok.Getter;
 import lombok.Setter;
 

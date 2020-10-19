@@ -1,15 +1,14 @@
 package br.com.zup.bootcamp.fleamarketapi.features.product;
 
-import br.com.zup.bootcamp.fleamarketapi.features.account.Account;
-import br.com.zup.bootcamp.fleamarketapi.features.account.AccountRepository;
-import br.com.zup.bootcamp.fleamarketapi.features.category.Category;
-import br.com.zup.bootcamp.fleamarketapi.features.category.CategoryRepository;
+import br.com.zup.bootcamp.fleamarketapi.model.ProductPhoto;
+import br.com.zup.bootcamp.fleamarketapi.model.request.CreateProductRequest;
+import br.com.zup.bootcamp.fleamarketapi.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 import java.net.URI;
@@ -17,29 +16,23 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/accounts/{accountId}/products", produces = APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class ProductRestController {
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
     private final ProductCharacteristicRepository productCharacteristicRepository;
-    private final AccountRepository accountRepository;
-    private final CategoryRepository categoryRepository;
+    private final ProductPhotoService productPhotoService;
 
     @Transactional
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@PathVariable UUID accountId,
                                        @RequestBody @Valid CreateProductRequest request) {
 
-        final Account account = this.accountRepository.findById(accountId)
-                .orElseThrow(() -> new EntityNotFoundException("message.product.account.not-found"));
-
-        final Category category = this.categoryRepository.findById(request.getCategoryId())
-                .orElseThrow(() -> new EntityNotFoundException("message.product.category.not-found"));
-
-        final Product product = this.productRepository.save(request.toProduct(account, category));
+        final Product product = this.productService.create(accountId, request);
 
         this.productCharacteristicRepository.saveAll(
                 request.getCharacteristics()
@@ -48,6 +41,15 @@ public class ProductRestController {
                         .collect(Collectors.toList())
         );
 
-        return ResponseEntity.created(URI.create(String.format("/categories/%s", product.getId()))).build();
+        return ResponseEntity.created(URI.create(String.format("/products/%s", product.getId()))).build();
+    }
+
+    @PostMapping(value = "/{productId}/photos", consumes = MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Void> uploadPhoto(@PathVariable UUID productId,
+                                            @PathVariable UUID accountId,
+                                            @RequestParam(value = "photo") MultipartFile photo) {
+
+        final ProductPhoto productPhoto = this.productPhotoService.create(productId, accountId, photo);
+        return ResponseEntity.created(URI.create(String.format("/photos/%s", productPhoto.getId()))).build();
     }
 }

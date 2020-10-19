@@ -1,13 +1,15 @@
-package br.com.zup.bootcamp.fleamarketapi.features.product;
+package br.com.zup.bootcamp.fleamarketapi.model.request;
 
-import br.com.zup.bootcamp.fleamarketapi.features.account.Account;
-import br.com.zup.bootcamp.fleamarketapi.features.category.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.model.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -36,11 +38,11 @@ public class CreateProductRequest {
     private String description;
 
     @NotEmpty(message = "message.product.characteristics.mandatory")
-    // min = 3
+    @Size(min = 3, message = "message.product.characteristics.min-value")
+    @Valid
     private List<CreateProductCharacteristicRequest> characteristics;
 
     @NotNull(message = "message.product.category-id.mandatory")
-//    @ExistingCategory
     private UUID categoryId;
 
 

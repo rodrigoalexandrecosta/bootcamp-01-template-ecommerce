@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ExceptionAdvice {
 
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = {Exception.class, IllegalStateException.class})
     ResponseEntity<Object> handleGeneralException(Exception e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }

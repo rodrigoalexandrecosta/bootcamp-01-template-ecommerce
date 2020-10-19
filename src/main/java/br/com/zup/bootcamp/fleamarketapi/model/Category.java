@@ -1,4 +1,4 @@
-package br.com.zup.bootcamp.fleamarketapi.features.category;
+package br.com.zup.bootcamp.fleamarketapi.model;
 
 import lombok.Getter;
 import lombok.Setter;

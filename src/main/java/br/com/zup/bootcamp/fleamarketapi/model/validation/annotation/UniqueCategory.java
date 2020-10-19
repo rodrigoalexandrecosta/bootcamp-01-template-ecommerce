@@ -1,4 +1,6 @@
-package br.com.zup.bootcamp.fleamarketapi.features.category.validation;
+package br.com.zup.bootcamp.fleamarketapi.model.validation.annotation;
+
+import br.com.zup.bootcamp.fleamarketapi.model.validation.validator.UniqueCategoryValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

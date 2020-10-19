@@ -1,5 +1,7 @@
 package br.com.zup.bootcamp.fleamarketapi.features.category;
 
+import br.com.zup.bootcamp.fleamarketapi.model.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.request.CreateCategoryRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

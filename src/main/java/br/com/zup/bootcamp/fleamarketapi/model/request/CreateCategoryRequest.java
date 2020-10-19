@@ -1,7 +1,8 @@
-package br.com.zup.bootcamp.fleamarketapi.features.category;
+package br.com.zup.bootcamp.fleamarketapi.model.request;
 
-import br.com.zup.bootcamp.fleamarketapi.features.category.validation.ExistingParentCategory;
-import br.com.zup.bootcamp.fleamarketapi.features.category.validation.UniqueCategory;
+import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.ExistingParentCategory;
+import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.UniqueCategory;
+import br.com.zup.bootcamp.fleamarketapi.model.Category;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;

@@ -1,6 +1,7 @@
-package br.com.zup.bootcamp.fleamarketapi.features.account.validation;
+package br.com.zup.bootcamp.fleamarketapi.model.validation.validator;
 
 import br.com.zup.bootcamp.fleamarketapi.features.account.AccountRepository;
+import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.UniqueEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;

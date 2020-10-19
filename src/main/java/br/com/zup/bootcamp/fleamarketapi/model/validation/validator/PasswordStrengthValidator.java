@@ -1,11 +1,11 @@
-package br.com.zup.bootcamp.fleamarketapi.features.account.validation;
+package br.com.zup.bootcamp.fleamarketapi.model.validation.validator;
 
+import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.PasswordStrength;
 import lombok.extern.slf4j.Slf4j;
 import org.passay.*;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.List;
 
 @Slf4j
 public class PasswordStrengthValidator implements ConstraintValidator<PasswordStrength, String> {

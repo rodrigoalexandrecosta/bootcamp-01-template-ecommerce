@@ -5,6 +5,5 @@ create table product_characteristic
     value      varchar(255)     not null,
     product_id uuid             not null,
 
-    constraint uk_name_value unique (name, value),
     constraint fk_product_id foreign key (product_id) references product (id)
 );

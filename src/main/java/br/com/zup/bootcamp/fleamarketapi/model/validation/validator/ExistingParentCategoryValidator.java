@@ -1,6 +1,7 @@
-package br.com.zup.bootcamp.fleamarketapi.features.category.validation;
+package br.com.zup.bootcamp.fleamarketapi.model.validation.validator;
 
 import br.com.zup.bootcamp.fleamarketapi.features.category.CategoryRepository;
+import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.ExistingParentCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
