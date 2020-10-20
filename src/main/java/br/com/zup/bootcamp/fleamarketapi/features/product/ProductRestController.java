@@ -1,8 +1,8 @@
 package br.com.zup.bootcamp.fleamarketapi.features.product;
 
-import br.com.zup.bootcamp.fleamarketapi.model.ProductPhoto;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.ProductPhoto;
 import br.com.zup.bootcamp.fleamarketapi.model.request.CreateProductRequest;
-import br.com.zup.bootcamp.fleamarketapi.model.Product;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package br.com.zup.bootcamp.fleamarketapi.model;
+package br.com.zup.bootcamp.fleamarketapi.model.entity;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;

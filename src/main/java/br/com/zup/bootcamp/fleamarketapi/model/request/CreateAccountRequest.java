@@ -2,7 +2,7 @@ package br.com.zup.bootcamp.fleamarketapi.model.request;
 
 import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.PasswordStrength;
 import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.UniqueEmail;
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Account;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 

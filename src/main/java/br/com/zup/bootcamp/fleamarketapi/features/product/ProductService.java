@@ -1,11 +1,11 @@
 package br.com.zup.bootcamp.fleamarketapi.features.product;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Account;
 import br.com.zup.bootcamp.fleamarketapi.features.account.AccountRepository;
-import br.com.zup.bootcamp.fleamarketapi.model.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Category;
 import br.com.zup.bootcamp.fleamarketapi.features.category.CategoryRepository;
 import br.com.zup.bootcamp.fleamarketapi.model.request.CreateProductRequest;
-import br.com.zup.bootcamp.fleamarketapi.model.Product;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

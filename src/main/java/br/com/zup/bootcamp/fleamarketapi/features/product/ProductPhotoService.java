@@ -1,7 +1,7 @@
 package br.com.zup.bootcamp.fleamarketapi.features.product;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Product;
-import br.com.zup.bootcamp.fleamarketapi.model.ProductPhoto;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.ProductPhoto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package br.com.zup.bootcamp.fleamarketapi.features.category;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Category;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

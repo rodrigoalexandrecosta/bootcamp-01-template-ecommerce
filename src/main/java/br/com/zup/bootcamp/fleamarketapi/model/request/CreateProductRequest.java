@@ -1,8 +1,8 @@
 package br.com.zup.bootcamp.fleamarketapi.model.request;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
-import br.com.zup.bootcamp.fleamarketapi.model.Category;
-import br.com.zup.bootcamp.fleamarketapi.model.Product;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Account;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

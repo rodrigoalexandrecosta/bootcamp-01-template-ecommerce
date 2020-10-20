@@ -1,6 +1,6 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account;
 
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

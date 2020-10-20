@@ -1,7 +1,7 @@
 package br.com.zup.bootcamp.fleamarketapi.features.account;
 
 import br.com.zup.bootcamp.fleamarketapi.features.account.encryption.CustomPasswordEncoder;
-import br.com.zup.bootcamp.fleamarketapi.model.Account;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.Account;
 import br.com.zup.bootcamp.fleamarketapi.model.request.CreateAccountRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

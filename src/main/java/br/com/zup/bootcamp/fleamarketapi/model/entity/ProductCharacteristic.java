@@ -1,4 +1,4 @@
-package br.com.zup.bootcamp.fleamarketapi.model;
+package br.com.zup.bootcamp.fleamarketapi.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +22,8 @@ public class ProductCharacteristic {
     @NotBlank(message = "message.product.characteristic.name.mandatory")
     private String name;
 
-    @NotBlank(message = "message.product.characteristic.value.mandatory")
-    private String value;
+    @NotBlank(message = "message.product.characteristic.description.mandatory")
+    private String description;
 
     @ManyToOne
     private Product product;
@@ -32,9 +32,9 @@ public class ProductCharacteristic {
     public ProductCharacteristic() {
     }
 
-    public ProductCharacteristic(String name, String value, Product product) {
+    public ProductCharacteristic(String name, String description, Product product) {
         this.name = name;
-        this.value = value;
+        this.description = description;
         this.product = product;
     }
 }
