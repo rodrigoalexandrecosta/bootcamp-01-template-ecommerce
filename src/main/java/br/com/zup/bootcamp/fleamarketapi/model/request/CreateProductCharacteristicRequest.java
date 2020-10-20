@@ -14,7 +14,7 @@ public class CreateProductCharacteristicRequest {
     @NotBlank(message = "message.product.characteristic.name.mandatory")
     private String name;
 
-    @NotBlank(message = "message.product.characteristic.value.mandatory")
+    @NotBlank(message = "message.product.characteristic.description.mandatory")
     private String description;
 
 

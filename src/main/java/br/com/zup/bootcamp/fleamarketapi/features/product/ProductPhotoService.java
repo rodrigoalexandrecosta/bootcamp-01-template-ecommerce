@@ -18,7 +18,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-/* Persisting file in the filesystem, at project root, inside unique product directory:
+/* Persisting files in the filesystem, at project root, inside unique product directory:
  * .sample/product-photos/{accountId}/{productId}
 */
 public class ProductPhotoService {

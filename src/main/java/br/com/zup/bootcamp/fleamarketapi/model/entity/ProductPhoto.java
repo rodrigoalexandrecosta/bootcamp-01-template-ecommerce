@@ -15,7 +15,7 @@ public class ProductPhoto {
     @GeneratedValue(generator = "uuid")
     private UUID id;
 
-    private String photoLocation;
+    private String photoUrl;
 
 //    @Transient
 //    private File photo;
@@ -27,8 +27,8 @@ public class ProductPhoto {
     public ProductPhoto() {
     }
 
-    public ProductPhoto(String photoLocation, Product product) {
-        this.photoLocation = photoLocation;
+    public ProductPhoto(String photoUrl, Product product) {
+        this.photoUrl = photoUrl;
         this.product = product;
     }
 }
