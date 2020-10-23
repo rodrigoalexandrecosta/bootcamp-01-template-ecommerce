@@ -15,10 +15,10 @@ import java.io.OutputStream;
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
-    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+    public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException e) throws IOException {
 
-        try (OutputStream out = httpServletResponse.getOutputStream()) {
+        try (OutputStream out = response.getOutputStream()) {
             out.write("message.token.invalid".getBytes());
             out.write(e.getMessage().getBytes());
         }

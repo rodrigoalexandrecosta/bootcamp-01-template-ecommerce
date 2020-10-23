@@ -29,7 +29,7 @@ public class AccountRestController {
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@RequestBody @Valid CreateAccountRequest request) {
         Account account = this.accountRepository.save(request.toAccount(customPasswordEncoder.encode(request.getPassword())));
-        return ResponseEntity.created(URI.create(String.format("/api/v1/accounts/%s", account.getId()))).build();
+        return ResponseEntity.created(URI.create(String.format("/accounts/%s", account.getId()))).build();
     }
 
 }

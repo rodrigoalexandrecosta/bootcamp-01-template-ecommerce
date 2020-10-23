@@ -5,8 +5,10 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
@@ -16,8 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
@@ -63,10 +66,16 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .verify(token.replace(TOKEN_PREFIX, ""));
 
             final String email = decoded.getClaim("email").asString();
-            final OffsetDateTime createdAt = OffsetDateTime.parse(decoded.getClaim("createdAt").asString());
-            final AccountResponse accountResponse = new AccountResponse(email, createdAt);
+            final AccountResponse accountResponse = new AccountResponse(email);
 
-            return new UsernamePasswordAuthenticationToken(accountResponse, accountResponse.getEmail());
+            // Needed here only for UsernamePasswordAuthenticationToken works correctly,
+            // otherwise always returns false;
+            List<SimpleGrantedAuthority> authorities = Optional.of("ALL")
+                    .stream()
+                    .map(SimpleGrantedAuthority::new)
+                    .collect(Collectors.toList());
+
+            return new UsernamePasswordAuthenticationToken(accountResponse, accountResponse.getEmail(), authorities);
 
         } catch (UnsupportedEncodingException e) {
             log.error(e.getMessage(), e);

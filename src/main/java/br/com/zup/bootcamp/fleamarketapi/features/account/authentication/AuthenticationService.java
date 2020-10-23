@@ -27,7 +27,7 @@ public class AuthenticationService {
         boolean isAuthenticated = this.passwordEncoder.matches(plainPassword, account.getPassword());
 
         if (isAuthenticated) {
-            return this.authenticationSuccess(new AccountResponse(account.getEmail(), account.getCreatedAt()));
+            return this.authenticationSuccess(new AccountResponse(account.getEmail()));
         }
         return this.authenticationFail();
     }
