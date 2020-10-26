@@ -19,7 +19,7 @@ public class ExceptionAdvice {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(value = {MethodArgumentNotValidException.class, IllegalArgumentException.class})
     ResponseEntity<Object> handleConstraintViolationException(MethodArgumentNotValidException e) {
         final List<String> errors = e.getBindingResult().getAllErrors().stream()
                 .map(ObjectError::getDefaultMessage)

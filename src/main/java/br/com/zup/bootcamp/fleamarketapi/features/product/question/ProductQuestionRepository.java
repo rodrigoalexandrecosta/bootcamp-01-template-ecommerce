@@ -1,4 +1,4 @@
-package br.com.zup.bootcamp.fleamarketapi.features.question;
+package br.com.zup.bootcamp.fleamarketapi.features.product.question;
 
 import br.com.zup.bootcamp.fleamarketapi.model.entity.ProductQuestion;
 import org.springframework.data.repository.CrudRepository;

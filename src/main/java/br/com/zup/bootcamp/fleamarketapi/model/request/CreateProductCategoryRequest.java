@@ -1,8 +1,8 @@
 package br.com.zup.bootcamp.fleamarketapi.model.request;
 
+import br.com.zup.bootcamp.fleamarketapi.model.entity.ProductCategory;
 import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.ExistingParentCategory;
 import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.UniqueCategory;
-import br.com.zup.bootcamp.fleamarketapi.model.entity.Category;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -12,10 +12,10 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class CreateCategoryRequest {
+public class CreateProductCategoryRequest {
 
-    @NotBlank(message = "message.category.name.mandatory")
-    @Length(max = 255, message = "message.account.email.length")
+    @NotBlank(message = "message.product.category.name.mandatory")
+    @Length(max = 255, message = "message.product.category.name.length")
     @UniqueCategory
     private String name;
 
@@ -23,19 +23,19 @@ public class CreateCategoryRequest {
     private UUID parentId;
 
     @Deprecated
-    public CreateCategoryRequest() {
+    public CreateProductCategoryRequest() {
     }
 
-    public CreateCategoryRequest(final String name, final UUID parentId) {
+    public CreateProductCategoryRequest(final String name, final UUID parentId) {
         this.name = name;
         this.parentId = parentId;
     }
 
-    public Category toCategory() {
-        return new Category(this.name);
+    public ProductCategory toProductCategory() {
+        return new ProductCategory(this.name);
     }
 
-    public Category toCategory(Category parent) {
-        return new Category(this.name, parent);
+    public ProductCategory toProductCategory(ProductCategory parent) {
+        return new ProductCategory(this.name, parent);
     }
 }

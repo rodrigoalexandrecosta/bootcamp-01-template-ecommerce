@@ -55,7 +55,7 @@ public class Product {
     private List<ProductOpinion> productOpinions;
 
     @ManyToOne
-    private Category category;
+    private ProductCategory productCategory;
 
     @ManyToOne
     private Account account;

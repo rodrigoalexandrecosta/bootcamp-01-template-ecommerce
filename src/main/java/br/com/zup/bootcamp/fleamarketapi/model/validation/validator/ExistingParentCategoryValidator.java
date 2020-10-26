@@ -1,6 +1,6 @@
 package br.com.zup.bootcamp.fleamarketapi.model.validation.validator;
 
-import br.com.zup.bootcamp.fleamarketapi.features.category.CategoryRepository;
+import br.com.zup.bootcamp.fleamarketapi.features.product.category.ProductCategoryRepository;
 import br.com.zup.bootcamp.fleamarketapi.model.validation.annotation.ExistingParentCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +11,7 @@ import java.util.UUID;
 public class ExistingParentCategoryValidator implements ConstraintValidator<ExistingParentCategory, UUID> {
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private ProductCategoryRepository productCategoryRepository;
 
     @Override
     public void initialize(ExistingParentCategory annotation) {
@@ -22,6 +22,6 @@ public class ExistingParentCategoryValidator implements ConstraintValidator<Exis
         if (parentCategoryId == null) {
             return true;
         }
-        return this.categoryRepository.findById(parentCategoryId).isPresent();
+        return this.productCategoryRepository.findById(parentCategoryId).isPresent();
     }
 }

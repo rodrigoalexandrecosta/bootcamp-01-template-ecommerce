@@ -17,8 +17,8 @@ import javax.validation.constraints.NotNull;
 public class CreateProductOpinionRequest {
 
     @NotNull(message = "message.product.opinion.stars.mandatory")
-    @DecimalMin(value = "1", message = "message.product.opinion.starts.min-valeu")
-    @DecimalMax(value = "5", message = "message.product.opinion.starts.max-valeu")
+    @DecimalMin(value = "1", message = "message.product.opinion.stars.min-value")
+    @DecimalMax(value = "5", message = "message.product.opinion.stars.max-value")
     private Integer stars;
 
     @NotBlank(message = "message.product.opinion.title.mandatory")

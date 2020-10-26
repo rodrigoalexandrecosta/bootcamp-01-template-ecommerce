@@ -1,7 +1,7 @@
 package br.com.zup.bootcamp.fleamarketapi.model.request;
 
 import br.com.zup.bootcamp.fleamarketapi.model.entity.Account;
-import br.com.zup.bootcamp.fleamarketapi.model.entity.Category;
+import br.com.zup.bootcamp.fleamarketapi.model.entity.ProductCategory;
 import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,7 +50,7 @@ public class CreateProductRequest {
     public CreateProductRequest() {
     }
 
-    public Product toProduct(Account account, Category category) {
+    public Product toProduct(Account account, ProductCategory productCategory) {
         return Product.builder()
                 .name(this.name)
                 .price(this.price)
@@ -58,7 +58,7 @@ public class CreateProductRequest {
                 .description(this.description)
                 .createdAt(OffsetDateTime.now())
                 .account(account)
-                .category(category)
+                .productCategory(productCategory)
                 .build();
     }
 }

@@ -1,4 +1,4 @@
-package br.com.zup.bootcamp.fleamarketapi.features.photo;
+package br.com.zup.bootcamp.fleamarketapi.features.product.photo;
 
 import br.com.zup.bootcamp.fleamarketapi.features.product.ProductRepository;
 import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;

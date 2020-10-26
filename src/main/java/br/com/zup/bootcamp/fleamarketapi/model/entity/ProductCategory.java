@@ -14,28 +14,28 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Category {
+public class ProductCategory {
 
     @Id
     @GeneratedValue(generator = "uuid")
     private UUID id;
 
-    @NotBlank(message = "message.category.name.mandatory")
-    @Length(max = 255, message = "message.account.email.length")
+    @NotBlank(message = "message.product.category.name.mandatory")
+    @Length(max = 255, message = "message.product.category.length")
     private String name;
 
     @ManyToOne
-    private Category parent;
+    private ProductCategory parent;
 
     @Deprecated
-    public Category() {
+    public ProductCategory() {
     }
 
-    public Category(final String name) {
+    public ProductCategory(final String name) {
         this.name = name;
     }
 
-    public Category(final String name, final Category parent) {
+    public ProductCategory(final String name, final ProductCategory parent) {
         this.name = name;
         this.parent = parent;
     }

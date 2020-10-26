@@ -6,9 +6,9 @@ create table product
     quantity    integer          not null,
     description varchar(1000)    not null,
     created_at  timestamptz      not null,
-    category_id uuid             not null,
+    product_category_id uuid             not null,
     account_id  uuid             not null,
 
-    constraint fk_category_id foreign key (category_id) references category (id),
+    constraint fk_product_category_id foreign key (product_category_id) references product_category (id),
     constraint fk_account_id foreign key (account_id) references account (id)
 );
