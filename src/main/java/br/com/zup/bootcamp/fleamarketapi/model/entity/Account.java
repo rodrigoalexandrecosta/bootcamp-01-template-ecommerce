@@ -37,4 +37,10 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private List<Product> products;
+
+    @OneToMany(mappedBy = "account")
+    private List<ProductOpinion> productOpinions;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductQuestion> productQuestions;
 }

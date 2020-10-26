@@ -1,5 +1,6 @@
-package br.com.zup.bootcamp.fleamarketapi.features.product;
+package br.com.zup.bootcamp.fleamarketapi.features.photo;
 
+import br.com.zup.bootcamp.fleamarketapi.features.product.ProductRepository;
 import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
 import br.com.zup.bootcamp.fleamarketapi.model.entity.ProductPhoto;
 import lombok.RequiredArgsConstructor;

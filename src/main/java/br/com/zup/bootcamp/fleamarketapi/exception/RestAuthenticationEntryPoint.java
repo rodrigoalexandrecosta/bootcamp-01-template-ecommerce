@@ -20,7 +20,6 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
         try (OutputStream out = response.getOutputStream()) {
             out.write("message.token.invalid".getBytes());
-            out.write(e.getMessage().getBytes());
         }
     }
 }

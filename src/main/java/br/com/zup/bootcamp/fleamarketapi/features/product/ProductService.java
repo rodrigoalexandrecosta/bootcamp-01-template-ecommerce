@@ -6,6 +6,7 @@ import br.com.zup.bootcamp.fleamarketapi.model.entity.Category;
 import br.com.zup.bootcamp.fleamarketapi.features.category.CategoryRepository;
 import br.com.zup.bootcamp.fleamarketapi.model.request.CreateProductRequest;
 import br.com.zup.bootcamp.fleamarketapi.model.entity.Product;
+import br.com.zup.bootcamp.fleamarketapi.model.response.ProductDetailsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,4 +32,12 @@ public class ProductService {
 
         return this.productRepository.save(request.toProduct(account, category));
     }
+
+    public ProductDetailsResponse findDetailsById(final UUID productId) {
+        final Product product = this.productRepository.findById(productId)
+                .orElseThrow(() -> new EntityNotFoundException("message.product.account.not-found"));
+
+        return new ProductDetailsResponse(product);
+    }
+
 }
